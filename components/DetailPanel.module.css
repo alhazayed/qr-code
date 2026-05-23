@@ -1,0 +1,89 @@
+.root { width: 100%; overflow-y: auto; min-height: 100vh; }
+.inner { max-width: 960px; margin: 0 auto; padding: 32px 28px 80px; }
+
+/* ── Top bar ── */
+.topBar { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 28px; gap: 16px; }
+.title { font-size: 24px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 4px; }
+.destUrl { font-size: 12px; color: var(--fg2); font-family: var(--font-mono); transition: color .15s; }
+.destUrl:hover { color: var(--accent-light); }
+.deleteBtn { background: none; border: 1px solid var(--border2); color: var(--red); border-radius: var(--radius-sm); padding: 8px 14px; font-size: 12px; cursor: pointer; font-family: var(--font-display); flex-shrink: 0; transition: background .12s; }
+.deleteBtn:hover { background: rgba(248,113,113,.08); }
+
+/* ── Body grid ── */
+.body { display: grid; grid-template-columns: 220px 1fr; gap: 28px; align-items: start; }
+
+/* ── QR section ── */
+.qrSection { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.qrBox { background: #fff; border-radius: 12px; padding: 14px; box-shadow: 0 8px 40px rgba(0,0,0,.5); }
+.qrImg { display: block; border-radius: 4px; }
+.btnPrimary { flex: 1; background: var(--accent); color: #fff; border: none; border-radius: var(--radius-sm); padding: 10px 0; font-size: 12px; font-weight: 700; cursor: pointer; font-family: var(--font-display); transition: opacity .15s; }
+.btnPrimary:hover { opacity: .85; }
+.btnSecondary { flex: 1; background: none; color: var(--fg); border: 1px solid var(--border2); border-radius: var(--radius-sm); padding: 10px 0; font-size: 12px; font-weight: 600; cursor: pointer; font-family: var(--font-display); transition: background .12s; }
+.btnSecondary:hover { background: var(--surface2); }
+.customizeBtn { width: 100%; background: linear-gradient(135deg, #7c6dfa, #e94560); color: #fff; border: none; border-radius: var(--radius-sm); padding: 11px 0; font-size: 13px; font-weight: 700; cursor: pointer; font-family: var(--font-display); transition: opacity .15s; }
+.customizeBtn:hover { opacity: .88; }
+.scanUrlBox { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 10px 12px; width: 100%; }
+.scanUrlLabel { font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: var(--fg2); margin-bottom: 4px; font-weight: 700; }
+.scanUrl { font-size: 9px; color: var(--accent-light); font-family: var(--font-mono); word-break: break-all; }
+.meta { font-size: 11px; color: var(--fg2); }
+
+/* ── Stats ── */
+.statsSection { display: flex; flex-direction: column; gap: 20px; }
+.statCards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.statCard { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 12px; text-align: center; }
+.statNum { font-size: 28px; font-weight: 800; font-family: var(--font-mono); line-height: 1; margin-bottom: 4px; }
+.statLabel { font-size: 10px; color: var(--fg2); text-transform: uppercase; letter-spacing: .5px; }
+
+/* ── Cards ── */
+.chartCard, .logCard { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; }
+.cardTitle { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--fg2); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.logCount { background: rgba(124,109,250,.2); color: var(--accent-light); border-radius: 99px; padding: 1px 8px; font-size: 11px; font-family: var(--font-mono); }
+
+/* ── Chart ── */
+.chart { display: flex; align-items: flex-end; gap: 3; height: 80px; }
+.chartCol { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; height: 100%; }
+.chartBarWrap { flex: 1; width: 100%; display: flex; align-items: flex-end; }
+.chartBar { width: 100%; background: var(--accent); border-radius: 4px 4px 0 0; min-height: 3px; transition: height .4s ease; }
+.chartLabel { font-size: 9px; color: var(--fg2); font-family: var(--font-mono); }
+
+/* ── Log ── */
+.logEmpty { font-size: 13px; color: var(--fg2); padding: 8px 0; }
+.log { display: flex; flex-direction: column; max-height: 320px; overflow-y: auto; }
+.logRow { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.logRow:last-child { border-bottom: none; }
+.logIdx { font-family: var(--font-mono); font-size: 11px; color: var(--fg2); background: var(--surface2); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; margin-top: 1px; }
+.logInfo { flex: 1; }
+.logTime { font-size: 13px; color: var(--fg); font-family: var(--font-mono); margin-bottom: 3px; }
+.logUa { font-size: 10px; color: var(--fg2); margin-top: 2px; }
+.logBadge { display: inline-block; background: rgba(52,211,153,.15); color: var(--green); border-radius: 4px; padding: 1px 6px; font-size: 10px; font-weight: 600; margin-bottom: 3px; }
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  .inner { padding: 16px 16px 100px; }
+
+  .topBar { margin-bottom: 16px; }
+  .title { font-size: 18px; }
+
+  /* Stack QR on top, stats below */
+  .body { grid-template-columns: 1fr; gap: 20px; }
+
+  /* QR section goes horizontal on mobile */
+  .qrSection {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .qrBox { padding: 10px; flex-shrink: 0; }
+
+  /* Put customize button prominently on mobile */
+  .qrMobileActions { display: flex; flex-direction: column; gap: 8px; flex: 1; }
+
+  .statCards { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .statNum { font-size: 22px; }
+
+  .cardTitle { font-size: 10px; }
+  .chartCard, .logCard { padding: 14px; }
+
+  .log { max-height: 240px; }
+}

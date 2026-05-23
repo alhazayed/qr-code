@@ -1,0 +1,65 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0c0c10;
+  --surface: #14141c;
+  --surface2: #1c1c28;
+  --border: #252535;
+  --border2: #2e2e42;
+  --fg: #ededf5;
+  --fg2: #9898b0;
+  --accent: #7c6dfa;
+  --accent-light: #a99dfc;
+  --green: #34d399;
+  --yellow: #fbbf24;
+  --red: #f87171;
+  --font-display: 'Syne', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+html, body { height: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+input, button, select, textarea {
+  font-family: var(--font-display);
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 99px; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .4; }
+}
+
+.fade-up { animation: fadeUp .4s ease both; }
+.fade-up-1 { animation: fadeUp .4s .05s ease both; }
+.fade-up-2 { animation: fadeUp .4s .1s ease both; }
+.fade-up-3 { animation: fadeUp .4s .15s ease both; }
+.fade-up-4 { animation: fadeUp .4s .2s ease both; }
